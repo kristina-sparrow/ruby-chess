@@ -6,7 +6,7 @@ class Board
   end
 
   def initialize
-    @grid = Array.new(8) { Array.new(8) }
+    @grid = Array.new(8) { Array.new(8, NullPiece.instance) }
   end
 
   def []=(location, piece)
@@ -26,5 +26,10 @@ class Board
       column < grid.first.length &&
       row >= 0 &&
       column >= 0
+  end
+
+  def empty?(location)
+    row, column = location
+    grid[row][column] == NullPiece.instance
   end
 end
