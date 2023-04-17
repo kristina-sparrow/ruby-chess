@@ -1,4 +1,4 @@
-# Ruby Hangman
+# Ruby Chess
 
 A simple command line game of Chess written in Ruby.
 
