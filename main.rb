@@ -12,5 +12,17 @@ require_relative './lib/pieces/knight'
 require_relative './lib/pieces/pawn'
 require_relative './lib/pieces/queen'
 require_relative './lib/pieces/rook'
+require_relative './lib/player'
+require_relative './lib/game'
+require_relative './lib/invalid_move_error'
 
 BoardDisplay.new(Board.start_chess).render
+
+b = Board.start_chess
+g = Game.new(
+  b,
+  Player.new(:black),
+  Player.new(:white),
+  BoardRendererText
+)
+g.play
