@@ -3,6 +3,22 @@ class Board
 
   def self.start_chess
     board = self.new
+    8.times do |c|
+      board[[1, c]] = Pawn.new(board, [1, c], :black)
+      board[[6, c]] = Pawn.new(board, [6, c], :white)
+    end
+    [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook].each_with_index do |piece_klass, column|
+      [[0, :black], [7, :white]].each do |(row, color)|
+        location = [row, column]
+        board[location] = piece_klass.new(
+          board,
+          location,
+          color
+        )
+      end
+    end
+
+    board
   end
 
   def initialize
