@@ -3,6 +3,8 @@
 require_relative './lib/board'
 require_relative './lib/board_display'
 require_relative './lib/pieces/piece'
+require_relative './lib/pieces/slideable'
+require_relative './lib/pieces/stepable'
 require_relative './lib/pieces/null_piece'
 require_relative './lib/pieces/bishop'
 require_relative './lib/pieces/king'

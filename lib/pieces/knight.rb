@@ -1,5 +1,6 @@
 class Knight < Piece
-
+  include Steppable
+  
   def to_s
     color == :black ? "♞" : "♘"
   end
