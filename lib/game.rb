@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Game
   attr_reader :player1, :player2, :board, :display
   attr_accessor :current_player
@@ -15,12 +17,10 @@ class Game
   end
 
   def play
-    while !over?
+    until over?
       display.render
       puts "It's #{current_player.color}'s turn"
-      if board.in_check?(current_player.color)
-        puts "#{current_player.color} is in check."
-      end
+      puts "#{current_player.color} is in check." if board.in_check?(current_player.color)
 
       take_turn
       swap_player!
@@ -39,17 +39,16 @@ class Game
     start_pos = nil
     # Prompt current player to enter a starting pos
     loop do
-      puts "Select a piece to move: "
+      puts 'Select a piece to move: '
       start_pos = current_player.get_pos
-      if board[start_pos].color == current_player.color
-        break
-      end
+      break if board[start_pos].color == current_player.color
+
       puts "Did not select a #{current_player.color} piece."
     end
 
     # Prompt current player to enter an ending pos
     loop do
-      puts "Select a position to move to:"
+      puts 'Select a position to move to:'
       end_pos = current_player.get_pos
 
       # Move the piece

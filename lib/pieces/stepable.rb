@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stepable
   def available_moves
     moves = []
@@ -8,11 +10,9 @@ module Stepable
       current_r += dr
       current_c += dc
       loc = [current_r, current_c]
-      next if !board.in_bounds?(loc)
+      next unless board.in_bounds?(loc)
 
-      if board.empty?(loc) || enemy?(loc)
-        moves << loc
-      end      
+      moves << loc if board.empty?(loc) || enemy?(loc)
     end
     moves
   end

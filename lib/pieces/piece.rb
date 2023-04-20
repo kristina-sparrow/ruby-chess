@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Piece
   attr_reader :color, :board
   attr_accessor :location
@@ -17,9 +19,7 @@ class Piece
       new_board = board.dup
       new_board.move_piece!(location, move)
       # if not in check, then the move is safe
-      if !new_board.in_check?(color)
-        moves << move
-      end
+      moves << move unless new_board.in_check?(color)
     end
     moves
   end

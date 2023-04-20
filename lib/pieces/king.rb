@@ -1,20 +1,22 @@
+# frozen_string_literal: true
+
 class King < Piece
-  include Steppable
-  
+  include Stepable
+
   def to_s
-    color == :black ? "♚" : "♔"
+    color == :black ? '♚' : '♔'
   end
 
   def move_dirs
     [
       [0, 1],
       [1, 1],
-      [1, 0],      
+      [1, 0],
       [0, -1],
       [1, -1],
       [-1, 1],
       [-1, -1],
-      [-1, 0],
+      [-1, 0]
     ]
   end
 end

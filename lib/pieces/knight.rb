@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class Knight < Piece
-  include Steppable
-  
+  include Stepable
+
   def to_s
-    color == :black ? "♞" : "♘"
+    color == :black ? '♞' : '♘'
   end
 
   def move_dirs
@@ -14,7 +16,7 @@ class Knight < Piece
       [1, -2],
       [2, -1],
       [-1, -2],
-      [-2, -1],  
+      [-2, -1]
     ]
   end
 end

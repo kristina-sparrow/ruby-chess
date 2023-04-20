@@ -16,13 +16,11 @@ require_relative './lib/player'
 require_relative './lib/game'
 require_relative './lib/invalid_move_error'
 
-BoardDisplay.new(Board.start_chess).render
-
 b = Board.start_chess
 g = Game.new(
   b,
   Player.new(:black),
   Player.new(:white),
-  BoardRendererText
+  BoardDisplay
 )
 g.play

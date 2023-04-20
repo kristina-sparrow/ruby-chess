@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BoardDisplay
   attr_accessor :board
 
@@ -6,14 +8,21 @@ class BoardDisplay
   end
 
   def render
-    8.times do |r|
-      puts "---------------"
-      8.times do |c|
-        piece = board[[r, c]]
-        print "#{board[[r, c]]} "
+    columns = %w[a b c d e f g h]
+    rows = [8, 7, 6, 5, 4, 3, 2, 1]
+
+    puts "    #{columns.join('   ')}"
+    puts "  +#{'---+' * 8}"
+
+    rows.each_with_index do |row, i|
+      print "#{row} |"
+      8.times do |j|
+        print " #{board[[i, j]]} |"
       end
-      puts ""
+      puts " #{row}"
+      puts "  +#{'---+' * 8}"
     end
-    puts "---------------"
+
+    puts "    #{columns.join('   ')}"
   end
 end
